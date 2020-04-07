@@ -1,0 +1,10 @@
+@import '../../styles/common';
+
+.container {
+  width: $basicSpace * 20;
+  height: $basicSpace * 30;
+  margin-top: $basicSpace;
+  padding: $basicSpace;
+  background-color: $containerBg;
+  border-radius: $borderRadiusSpace;
+}

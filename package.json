@@ -3,14 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-sass": "^4.13.1",
+    "normalize.css": "^8.0.1",
     "react": "^16.13.1",
+    "react-css-modules": "^4.7.11",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-redux": "^7.2.0",
+    "react-scripts": "3.4.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:noWatch": "react-stripts test --watchAll=false",
     "eject": "react-scripts eject",
     "lint:js": "eslint --ignore-path .gitignore . --ext js --ext jsx",
     "lint:styles": "stylelint './src/**/*.scss'",
