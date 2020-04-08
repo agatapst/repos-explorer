@@ -4,13 +4,13 @@ function fetchRepos(username) {
   return (dispatch) => {
     dispatch(fetchReposPending());
     fetch(`https:///api.github.com/users/${username}/repos`)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.error) {
-          throw res.error;
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.error) {
+          throw json.error;
         }
-        dispatch(fetchReposSuccess(res.repos));
-        return res.repos;
+        dispatch(fetchReposSuccess(json));
+        return json;
       })
       .catch((error) => {
         dispatch(fetchReposError(error));

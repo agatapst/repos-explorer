@@ -1,4 +1,4 @@
-import { FETCH_REPOS_PENDING, FETCH_REPOS_SUCCESS, FETCH_REPOS_ERROR } from './actions';
+import { FETCH_REPOS_PENDING, FETCH_REPOS_SUCCESS, FETCH_REPOS_ERROR } from '../actions/actions';
 
 const initialState = {
   pending: false,
@@ -6,7 +6,8 @@ const initialState = {
   error: null,
 };
 
-export function reposReducer(state = initialState, action) {
+export default function reposReducer(state = initialState, action) {
+  console.log('action', action);
   switch (action.type) {
     case FETCH_REPOS_PENDING:
       return {
@@ -17,7 +18,7 @@ export function reposReducer(state = initialState, action) {
       return {
         ...state,
         pending: false,
-        repos: action.payload,
+        repos: action.repos,
       };
     case FETCH_REPOS_ERROR:
       return {
@@ -29,7 +30,3 @@ export function reposReducer(state = initialState, action) {
       return state;
   }
 }
-
-export const getRepos = (state) => state.repos;
-export const getReposPending = (state) => state.pending;
-export const getReposError = (state) => state.error;

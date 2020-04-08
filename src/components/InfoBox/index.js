@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import styles from './InfoBox.module.scss';
 
 const propTypes = {
   // @todo: add type
-  children: PropTypes.any.isRequired,
 };
 
 const RepoBox = () => {
