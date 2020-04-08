@@ -1,19 +1,19 @@
 import { fetchReposPending, fetchReposSuccess, fetchReposError } from './actions';
 
-function fetchRepos(username) {
+function fetchRepos(user) {
   return (dispatch) => {
-    dispatch(fetchReposPending());
-    fetch(`https:///api.github.com/users/${username}/repos`)
+    dispatch(fetchReposPending(user.id));
+    fetch(user.repos_url)
       .then((response) => response.json())
       .then((json) => {
         if (json.error) {
           throw json.error;
         }
-        dispatch(fetchReposSuccess(json));
+        dispatch(fetchReposSuccess(user.id, json));
         return json;
       })
       .catch((error) => {
-        dispatch(fetchReposError(error));
+        dispatch(fetchReposError(user.id, error));
       });
   };
 }

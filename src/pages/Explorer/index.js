@@ -4,37 +4,43 @@ import Container from 'components/Container';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import InfoBox from 'components/InfoBox';
-import fetchRepos from 'actions/fetchRepos';
+import fetchUsers from 'actions/fetchUsers';
 
 export const Explorer = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
-  const { repos, pending, error } = useSelector((state) => state.reposReducer);
+  const { users, pending, error } = useSelector((state) => state.users);
 
-  const handleClick = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     if (username) {
-      dispatch(fetchRepos(username));
+      dispatch(fetchUsers(username));
     }
   };
 
   return (
     <Container>
       {error}
-      <Input
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
-        placeholder="Enter username"
-      />
-      <Button onClick={handleClick}>Search</Button>
+      <form onSubmit={handleSearch}>
+        <Input
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+          placeholder="Enter username"
+        />
+        <Button type="submit">Search</Button>
+      </form>
       <InfoBox />
       {pending && 'Loading'}
-      {repos && repos.length > 0 ? (
+      {users && users.length > 0 ? (
         <>
           <div>Showing repositories for "{username}"</div>
           <ul>
-            {repos.map(({ id, name, url }) => (
+            {users.map(({ id, login, repos, reposPending, reposError }) => (
               <li key={id}>
-                <a href={url}>{name}</a>
+                <div>{login}</div>
+                <div>{reposPending && 'Loading'}</div>
+                <div>{repos && repos.length}</div>
+                <div>{reposError && reposError.message}</div>
               </li>
             ))}
           </ul>
