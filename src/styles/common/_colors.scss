@@ -1,17 +1,18 @@
 //colors
 $white: #ffffff;
 $gray: #e5e5e5;
-$dark-gray: #020202;
-$light-gray: #f2f2f2;
+$darkGray: #020202;
+$lightGray: #f2f2f2;
 $blue: #3a9ddb;
 $black: #000000;
 
 //background colors:
 $mainBg: $gray;
 $containerBg: $white;
+$inputBg: $lightGray;
 $buttonBg: $blue;
 
 //text colors:
-$mainText: $dark-gray;
-$secondaryText: $light-gray;
+$mainText: $darkGray;
+$secondaryText: $lightGray;
 $buttonText: $white;

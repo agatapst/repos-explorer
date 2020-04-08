@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     'react/jsx-one-expression-per-line': 'off',
     'react-hooks/rules-of-hooks': 'error',
+    'react/no-unescaped-entities': 'off',
     'no-unused-vars': 'error',
     'import/order': [
       1,

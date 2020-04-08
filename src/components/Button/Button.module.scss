@@ -1,0 +1,9 @@
+@import '../../styles/common';
+
+.button {
+  width: 100%;
+  margin: $smallSpace * 3 0;
+  padding: $smallSpace * 3 $smallSpace;
+  color: $buttonText;
+  background-color: $buttonBg;
+}
