@@ -40,6 +40,7 @@ const InfoBox = ({ id, login, reposPending, repos, reposError }) => {
               <li title="Repository" key={repo.id}>
                 <h2 title="Repository name">{repo.name}</h2>
                 <div title="Repository description">{repo.description}</div>
+                <div title="Repository stars">{repo.stargazers_count}</div>
               </li>
             ))}
           </ul>

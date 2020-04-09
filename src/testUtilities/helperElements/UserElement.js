@@ -23,6 +23,7 @@ export class UserElement {
     return [...repos].map((repo) => ({
       name: queryByTitle(repo, 'Repository name').textContent,
       description: queryByTitle(repo, 'Repository description').textContent,
+      stars: parseInt(queryByTitle(repo, 'Repository stars').textContent),
     }));
   }
 }

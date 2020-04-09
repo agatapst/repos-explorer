@@ -8,8 +8,8 @@ const users = [
 ];
 
 const repos = [
-  { id: 1, name: 'test-repo-1', description: 'Super repo' },
-  { id: 2, name: 'test-repo-2', description: 'Another repo' },
+  { id: 1, name: 'test-repo-1', description: 'Super repo', stargazers_count: 10 },
+  { id: 2, name: 'test-repo-2', description: 'Another repo', stargazers_count: 5 },
 ];
 
 describe('Explorer Page', () => {
@@ -42,8 +42,8 @@ describe('Explorer Page', () => {
     const usersList = await page.getUsersList();
     usersList[0].expand();
     expect(await usersList[0].getRepositories()).toEqual([
-      { name: 'test-repo-1', description: 'Super repo' },
-      { name: 'test-repo-2', description: 'Another repo' },
+      { name: 'test-repo-1', description: 'Super repo', stars: 10 },
+      { name: 'test-repo-2', description: 'Another repo', stars: 5 },
     ]);
   });
 });
