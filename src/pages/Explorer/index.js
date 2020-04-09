@@ -27,21 +27,24 @@ export const Explorer = () => {
           onChange={(event) => setUsername(event.target.value)}
           placeholder="Enter username"
         />
-        <Button type="submit">Search</Button>
+        <Button type="submit" title="Search">
+          Search
+        </Button>
       </form>
-      <InfoBox />
       {pending && 'Loading'}
       {users && users.length > 0 ? (
         <>
           <div>Showing repositories for "{username}"</div>
-          <ul>
+          <ul title="Users list" style={{ height: '400px', width: '350px', overflow: 'auto' }}>
             {users.map(({ id, login, repos, reposPending, reposError }) => (
-              <li key={id}>
-                <div>{login}</div>
-                <div>{reposPending && 'Loading'}</div>
-                <div>{repos && repos.length}</div>
-                <div>{reposError && reposError.message}</div>
-              </li>
+              <InfoBox
+                key={id}
+                id={id}
+                login={login}
+                reposPending={reposPending}
+                repos={repos}
+                reposError={reposError}
+              />
             ))}
           </ul>
         </>

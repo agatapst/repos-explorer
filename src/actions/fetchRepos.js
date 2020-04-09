@@ -3,11 +3,11 @@ import { fetchReposPending, fetchReposSuccess, fetchReposError } from './actions
 function fetchRepos(user) {
   return (dispatch) => {
     dispatch(fetchReposPending(user.id));
-    fetch(user.repos_url)
+    return fetch(user.repos_url)
       .then((response) => response.json())
       .then((json) => {
-        if (json.error) {
-          throw json.error;
+        if (json.message) {
+          throw json.message;
         }
         dispatch(fetchReposSuccess(user.id, json));
         return json;

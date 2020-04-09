@@ -1,10 +1,12 @@
+import { searchUsersUrl } from 'config/api';
+
 import { fetchUsersPending, fetchUsersSuccess, fetchUsersError } from './actions';
 import fetchRepos from './fetchRepos';
 
 function fetchUsers(username) {
   return (dispatch) => {
     dispatch(fetchUsersPending());
-    fetch(`https:///api.github.com/search/users?q=${username}`)
+    fetch(searchUsersUrl(username))
       .then((response) => response.json())
       .then((json) => {
         if (json.error) {

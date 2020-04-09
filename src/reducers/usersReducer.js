@@ -14,7 +14,6 @@ const initialState = {
 };
 
 export default function usersReducer(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case FETCH_USERS_PENDING:
       return {
