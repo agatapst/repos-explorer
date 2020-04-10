@@ -1,8 +1,7 @@
 @import '../../styles/common';
 
 .usersList {
-  width: $basicSpace * 18;
-  height: $basicSpace * 20;
+  margin-bottom: 0;
   padding: 0;
   overflow: auto;
   list-style-type: none;

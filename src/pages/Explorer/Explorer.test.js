@@ -8,8 +8,20 @@ const users = [
 ];
 
 const repos = [
-  { id: 1, name: 'test-repo-1', description: 'Super repo', stargazers_count: 10 },
-  { id: 2, name: 'test-repo-2', description: 'Another repo', stargazers_count: 5 },
+  {
+    id: 1,
+    name: 'test-repo-1',
+    description: 'Super repo',
+    stargazers_count: 10,
+    html_url: 'http://example.com',
+  },
+  {
+    id: 2,
+    name: 'test-repo-2',
+    description: 'Another repo',
+    stargazers_count: 5,
+    html_url: 'http://example.com',
+  },
 ];
 
 describe('Explorer Page', () => {

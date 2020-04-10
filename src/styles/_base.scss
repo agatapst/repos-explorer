@@ -6,6 +6,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: $base-font-family;
+  font-size: $baseFontSize;
+  font-family: $baseFontFamily;
   background-color: $mainBg;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Container from 'components/Container';
 import Input from 'components/Input';
 import Button from 'components/Button';
-import InfoBox from 'components/InfoBox';
+import UserInfoBox from 'components/UserInfoBox';
 import fetchUsers from 'actions/fetchUsers';
 
 import styles from './Explorer.module.scss';
@@ -33,18 +33,17 @@ export const Explorer = () => {
           Search
         </Button>
       </form>
-      {pending && 'Loading'}
+      {pending && 'Loading...'}
       {users && users.length > 0 ? (
         <>
-          <div>Showing repositories for "{searchedUsername}"</div>
+          <div>Showing users for "{searchedUsername}"</div>
           <ul title="Users list" className={styles.usersList}>
             {users.map(({ id, login, repos, reposPending, reposError }) => (
-              <InfoBox
+              <UserInfoBox
                 key={id}
-                id={id}
                 login={login}
-                reposPending={reposPending}
                 repos={repos}
+                reposPending={reposPending}
                 reposError={reposError}
               />
             ))}

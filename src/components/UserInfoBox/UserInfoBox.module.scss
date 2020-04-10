@@ -1,0 +1,34 @@
+@import '../../styles/common';
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: $smallSpace * 2 0;
+  padding: 0 $smallSpace * 2;
+  background-color: $inputBg;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  .username {
+    margin: $smallSpace * 2;
+    font-size: $mediumFontSize;
+  }
+}
+
+.arrowUp,
+.arrowDown {
+  width: 20px;
+
+  &.arrowUp {
+    transform: rotate(180deg);
+  }
+}
+
+.repoList {
+  padding: 0;
+  padding-left: $basicSpace;
+  list-style-type: none;
+}

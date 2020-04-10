@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import InfoBox from './';
+import UserInfoBox from './';
 
 describe('Info Box Component', () => {
   const props = {
@@ -14,6 +14,6 @@ describe('Info Box Component', () => {
   };
 
   it('renders without error', () => {
-    render(<InfoBox {...props} />);
+    render(<UserInfoBox {...props} />);
   });
 });

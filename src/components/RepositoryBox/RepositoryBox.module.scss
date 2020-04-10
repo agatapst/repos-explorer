@@ -1,0 +1,30 @@
+@import '../../styles/common';
+
+.box {
+  margin: $smallSpace * 2 0;
+  padding: $smallSpace $smallSpace * 2;
+  background: $boxBg;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .name {
+    flex: 1;
+    margin: $smallSpace * 2 $smallSpace * 2 $smallSpace * 2 0;
+    font-size: $bigFontSize;
+  }
+}
+
+.starsBadge {
+  display: flex;
+  .starsCount {
+    margin-right: $smallSpace;
+    line-height: 22px;
+  }
+  .starsIcon {
+    height: 20px;
+  }
+}

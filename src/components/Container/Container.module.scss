@@ -1,6 +1,8 @@
 @import '../../styles/common';
 
 .container {
+  display: flex;
+  flex-direction: column;
   width: $basicSpace * 20;
   height: $basicSpace * 30;
   margin-top: $basicSpace;
