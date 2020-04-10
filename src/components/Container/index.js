@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Container.module.scss';
 
 const propTypes = {
-  // @todo: add type
-  children: PropTypes.any.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 const Container = ({ children }) => {

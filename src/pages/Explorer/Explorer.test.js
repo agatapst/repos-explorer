@@ -17,8 +17,8 @@ describe('Explorer Page', () => {
 
   beforeEach(async () => {
     fetchMock.get('https://api.github.com/search/users?q=johndoe', { items: users });
-    fetchMock.get('https://api.github.com/repos/johndoe1', { body: repos });
-    fetchMock.get('https://api.github.com/repos/johndoe2', { body: [] });
+    fetchMock.get(users[0].repos_url, { body: repos });
+    fetchMock.get(users[1].repos_url, { body: [] });
     page = await ExplorerPageObject.render();
   });
 

@@ -6,11 +6,11 @@ import fetchRepos from './fetchRepos';
 function fetchUsers(username) {
   return (dispatch) => {
     dispatch(fetchUsersPending());
-    fetch(searchUsersUrl(username))
+    return fetch(searchUsersUrl(username))
       .then((response) => response.json())
       .then((json) => {
-        if (json.error) {
-          throw json.error;
+        if (json.message) {
+          throw json.message;
         }
         const users = json.items.slice(0, 5);
         dispatch(fetchUsersSuccess(username, users));

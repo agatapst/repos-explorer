@@ -20,6 +20,8 @@ const propTypes = {
 
 const defaultProps = {
   repos: [],
+  reposPending: false,
+  reposError: null,
   message: '',
   description: '',
 };

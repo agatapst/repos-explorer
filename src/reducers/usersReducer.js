@@ -14,6 +14,10 @@ const initialState = {
   error: null,
 };
 
+function updateUser(users, userId, data) {
+  return users.map((user) => (user.id === userId ? { ...user, ...data } : user));
+}
+
 export default function usersReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_USERS_PENDING:
@@ -38,27 +42,27 @@ export default function usersReducer(state = initialState, action) {
       return {
         ...state,
         pending: false,
-        users: state.users.map((user) =>
-          user.id === action.userId ? { ...user, reposPending: true } : user
-        ),
+        users: updateUser(state.users, action.userId, {
+          reposPending: true,
+        }),
       };
     case FETCH_REPOS_SUCCESS:
       return {
         ...state,
         pending: false,
-        users: state.users.map((user) =>
-          user.id === action.userId ? { ...user, repos: action.repos, reposPending: false } : user
-        ),
+        users: updateUser(state.users, action.userId, {
+          reposPending: false,
+          repos: action.repos,
+        }),
       };
     case FETCH_REPOS_ERROR:
       return {
         ...state,
         pending: false,
-        users: state.users.map((user) =>
-          user.id === action.userId
-            ? { ...user, reposError: action.error, reposPending: false }
-            : user
-        ),
+        users: updateUser(state.users, action.userId, {
+          reposError: action.error,
+          reposPending: false,
+        }),
       };
     default:
       return state;

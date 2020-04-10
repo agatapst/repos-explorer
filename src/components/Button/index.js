@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
 const propTypes = {
-  // @todo: add type
-  children: PropTypes.any.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 const Button = ({ children, ...props }) => {
