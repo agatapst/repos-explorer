@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// import styles from './InfoBox.module.scss';
+import styles from './InfoBox.module.scss';
 
 const propTypes = {
   id: PropTypes.number.isRequired,
@@ -28,19 +28,32 @@ const InfoBox = ({ id, login, reposPending, repos, reposError }) => {
   const [isRepoShown, setRepoShown] = useState(false);
   return (
     <li key={id} title="User" style={{ width: '100%' }}>
-      <h1 title="Username">{login}</h1>
-      <button title="Show repositories" onClick={() => setRepoShown(!isRepoShown)}>
-        show
-      </button>
+      <div className={styles.usernameBox}>
+        <h1 className={styles.username} title="Username">
+          {login}
+        </h1>
+        <button
+          title="Show repositories"
+          className={styles.arrowButton}
+          onClick={() => setRepoShown(!isRepoShown)}
+        >
+          <img src="/images/down-arrow.png" alt="Down arrow" />
+        </button>
+      </div>
       {isRepoShown && (
         <>
           <div>{reposPending && 'Loading'}</div>
-          <ul title="Repositories list">
+          <ul className={styles.repoList} title="Repositories list">
             {repos.map((repo) => (
-              <li title="Repository" key={repo.id}>
-                <h2 title="Repository name">{repo.name}</h2>
+              <li title="Repository" key={repo.id} className={styles.repoBox}>
+                <div className={styles.nameBox}>
+                  <h2 title="Repository name">{repo.name}</h2>
+                  <div title="Repository stars">
+                    <span className={styles.starsCount}>{repo.stargazers_count}</span>
+                    <img src="/images/star.png" alt="Down arrow" />
+                  </div>
+                </div>
                 <div title="Repository description">{repo.description}</div>
-                <div title="Repository stars">{repo.stargazers_count}</div>
               </li>
             ))}
           </ul>

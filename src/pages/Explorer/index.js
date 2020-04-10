@@ -6,10 +6,12 @@ import Button from 'components/Button';
 import InfoBox from 'components/InfoBox';
 import fetchUsers from 'actions/fetchUsers';
 
+import styles from './Explorer.module.scss';
+
 export const Explorer = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
-  const { users, pending, error } = useSelector((state) => state.users);
+  const { users, searchedUsername, pending, error } = useSelector((state) => state.users);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -34,8 +36,8 @@ export const Explorer = () => {
       {pending && 'Loading'}
       {users && users.length > 0 ? (
         <>
-          <div>Showing repositories for "{username}"</div>
-          <ul title="Users list" style={{ height: '400px', width: '350px', overflow: 'auto' }}>
+          <div>Showing repositories for "{searchedUsername}"</div>
+          <ul title="Users list" className={styles.usersList}>
             {users.map(({ id, login, repos, reposPending, reposError }) => (
               <InfoBox
                 key={id}

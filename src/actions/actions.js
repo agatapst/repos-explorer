@@ -12,9 +12,10 @@ export function fetchUsersPending() {
   };
 }
 
-export function fetchUsersSuccess(users) {
+export function fetchUsersSuccess(username, users) {
   return {
     type: FETCH_USERS_SUCCESS,
+    username: username,
     users: users,
   };
 }

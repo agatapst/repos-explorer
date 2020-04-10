@@ -10,6 +10,7 @@ import {
 const initialState = {
   pending: false,
   users: [],
+  searchedUsername: '',
   error: null,
 };
 
@@ -24,6 +25,7 @@ export default function usersReducer(state = initialState, action) {
       return {
         ...state,
         pending: false,
+        searchedUsername: action.username,
         users: action.users,
       };
     case FETCH_USERS_ERROR:

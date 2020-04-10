@@ -13,7 +13,7 @@ function fetchUsers(username) {
           throw json.error;
         }
         const users = json.items.slice(0, 5);
-        dispatch(fetchUsersSuccess(users));
+        dispatch(fetchUsersSuccess(username, users));
         users.forEach((user) => dispatch(fetchRepos(user)));
         return json;
       })

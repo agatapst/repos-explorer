@@ -1,5 +1,44 @@
 @import '../../styles/common';
 
-.username {
+.usernameBox {
+  display: flex;
+  justify-content: space-between;
+  margin: $smallSpace 0;
+  padding: 0 $smallSpace * 2;
   background-color: $inputBg;
+
+  .username {
+    margin: $smallSpace * 2;
+  }
+}
+
+.arrowButton {
+  background: none;
+  border: none;
+  outline: none;
+
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.repoList {
+  padding: 0;
+  list-style-type: none;
+}
+
+.nameBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .starsCount {
+    margin-right: $smallSpace;
+  }
+}
+
+.repoBox {
+  margin: $smallSpace * 2 0;
+  padding: $smallSpace $smallSpace * 2;
+  background: $boxBg;
 }
