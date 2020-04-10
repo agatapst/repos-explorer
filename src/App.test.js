@@ -3,7 +3,7 @@ import { renderWithProviders } from 'testUtilities/renderWithProviders';
 
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders app', () => {
   const { container } = renderWithProviders(<App />);
   expect(container).toBeInTheDocument();
 });
